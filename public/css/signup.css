@@ -1,0 +1,98 @@
+body {
+    background-image: url("https://wallpapercave.com/wp/wp8758452.jpg");
+    background-size: cover;
+    background-position: center;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.signup-container {
+    border: 2px solid black;
+    padding: 80px;
+    border-radius: 10px;
+}
+
+.signup-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.signup-container input[type="text"],
+.signup-container input[type="password"] {
+    padding: 10px;
+    width: 200px;
+}
+
+.signup-container button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 250px;
+}
+
+.signup-container button:hover {
+    background-color: #0056b3;
+}
+
+
+h2 {
+    position: absolute;
+    top: 230px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    border-radius: 5%;
+}
+
+.signup-container input[type="submit"] {
+    padding: 10px;
+    width: 150px;
+    background-color: #007bff;
+}
+
+.navigation {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.navigation p {
+    margin-right: 10px; 
+    color: white;
+}
+
+.navigation p:last-child {
+    margin-right: 0; 
+}
+
+.navigation p:hover {
+    color: blue;
+}
+
+.navigation {
+    margin-bottom: 20px;
+}
+
+.navigation p a {
+    display: inline-block;
+    padding: 0px 10px;
+    background-color: #8294a7; /* Blue color, change to your preferred color */
+    color: #fff; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Show pointer cursor on hover */
+}

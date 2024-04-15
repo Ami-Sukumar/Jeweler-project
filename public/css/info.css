@@ -1,0 +1,36 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: navy;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  display: inline-block;
+  width: 80px;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+#message {
+  font-weight: bold;
+  color: green;
+}
+
+.navigation p a {
+    display: inline-block;
+    padding: 0px 10px;
+    background-color: #8294a7; /* Blue color, change to your preferred color */
+    color: #fff; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Show pointer cursor on hover */
+}

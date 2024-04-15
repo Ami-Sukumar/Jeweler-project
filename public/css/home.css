@@ -1,0 +1,41 @@
+body {
+    background-image: url("https://c8.alamy.com/comp/2BGERAY/seamless-volume-white-pattern-flower-of-life-design-volume-background-floral-repetitive-light-geometric-texture-or-web-page-fill-looks-like-scales-2BGERAY.jpg");
+    background-size: cover;
+    background-position: center;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-left: 10%;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+h1 {
+    color: black;
+}
+
+.navigation p a {
+    display: inline-block;
+    padding: 0px 10px;
+    background-color: #8294a7; /* Blue color, change to your preferred color */
+    color: #fff; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Show pointer cursor on hover */
+}

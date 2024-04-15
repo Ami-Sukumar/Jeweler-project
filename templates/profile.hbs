@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>User Profile</title>
+</head>
+<body>
+   <h1>User Profile</h1>
+   <!-- Display user information here -->
+   <p>Welcome, {{user.name}}!</p>
+   <!-- Display user info -->
+   <p>User Info:</p>
+   <p>Name: {{user.name}}</p>
+   <p>Age: {{user.age}}</p>
+   <p>Email: {{user.email}}</p>
+   <p>Address: {{user.address}}</p>
+   <p>Phone: {{user.phone}}</p>
+   <p>Gender: {{user.gender}}</p>
+
+   <!-- Logout -->
+   <a href="/logout">Logout</a>
+   <br>
+   <a href="/info">Add your details</a>
+
+   <!-- Delete account button -->
+   <form action="/delete-account" method="POST">
+       <input type="hidden" name="username" value="{{user.username}}">
+       <button type="submit">Delete Account</button>
+   </form>
+</body>
+</html>
