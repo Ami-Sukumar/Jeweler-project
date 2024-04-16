@@ -1,6 +1,8 @@
 function searchRedirect(event) {
   event.preventDefault(); // Prevent form submission
 
+  console.log("running")
+
  const userInput = document.getElementById("searchInput").value.toLowerCase();
  fetch('/search', {
    method: 'POST',
