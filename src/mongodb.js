@@ -34,13 +34,6 @@ const Collection = mongoose.model("collection1", LogInSchema);
 // Export the model for the first database
 module.exports.Collection = Collection;
 
-// Connect to the second database (UserInfoDB)
-const userInfoDBConnection = mongoose.createConnection("mongodb://localhost:27017/UserInfoDB");
-
-userInfoDBConnection.once('open', () => {
-  console.log('Second MongoDB connected');
-});
-
 // Define schema for the second database
 const userInfoSchema = new mongoose.Schema({
   name: {
@@ -70,7 +63,7 @@ const userInfoSchema = new mongoose.Schema({
 });
 
 // Create model for the second database
-const UserInfoModel = userInfoDBConnection.model("collection2", userInfoSchema);
+const UserInfoModel = mongoose.model("collection2", userInfoSchema);
 
 // Export the model for the second database
 module.exports.UserInfoModel = UserInfoModel;
