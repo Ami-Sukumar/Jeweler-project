@@ -53,29 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', handleSubmit);
 });
 
-// Example of conditionals
-function checkAge(user) {
-    if (user.age >= 18) {
-        console.log('User is an adult.');
-    } else {
-        console.log('User is a minor.');
-    }
-}
-
-// Example of loop and array
-async function processUsers(users) {
-    for (const user of users) {
-        console.log(`${user.name} - ${user.email}`);
-    }
-}
-
-// Example of dictionary (object)
-function printUserInfo(user) {
-    for (const [key, value] of Object.entries(user)) {
-        console.log(`${key}: ${value}`);
-    }
-}
-
 // Call the connectToMongoDB function
 connectToMongoDB()
     .then(async (collection) => {
