@@ -4,29 +4,46 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>User Profile</title>
+   <link rel="stylesheet" href="/css/profile.css">
 </head>
 <body>
-   <h1>User Profile</h1>
-   <!-- Display user information here -->
-   <p>Welcome, {{user.name}}!</p>
-   <!-- Display user info -->
-   <p>User Info:</p>
-   <p>Name: {{user.name}}</p>
-   <p>Age: {{user.age}}</p>
-   <p>Email: {{user.email}}</p>
-   <p>Address: {{user.address}}</p>
-   <p>Phone: {{user.phone}}</p>
-   <p>Gender: {{user.gender}}</p>
 
-   <!-- Logout -->
-   <a href="/logout">Logout</a>
-   <br>
-   <a href="/info">Add your details</a>
-
-   <!-- Delete account button -->
-   <form action="/delete-account" method="POST">
-       <input type="hidden" name="username" value="{{user.username}}">
-       <button type="submit">Delete Account</button>
-   </form>
+            <div class="navigation">
+            <p><a href="/index.html">Home</a></p>
+            <p><a href="/about.html">About Us</a></p>
+            <p><a href="/contact.html">Contact Us</a></p>
+            <p><a href="/login">Login</a></p>
+        </div>    
+   <div class="container">
+       <h1>Hello User</h1>
+       <br>
+       <!-- Display user information here -->
+       <p>Welcome, {{user.name}}!</p>
+       <!-- Display user info -->
+       <div class="user-info">
+           <p>User Info:</p>
+           <p>Name: {{user.name}}</p>
+           <p>Age: {{user.age}}</p>
+           <p>Email: {{user.email}}</p>
+           <p>Address: {{user.address}}</p>
+           <p>Phone: {{user.phone}}</p>
+           <p>Gender: {{user.gender}}</p>
+       </div>
+       <!-- Logout -->
+       <form action="/logout" method="GET">
+           <button type="submit">Logout</button>
+       </form>
+       <!-- Add your details -->
+       <form action="/info" method="GET">
+           <button type="submit">Add your details</button>
+       </form>
+       <!-- Delete account button -->
+       <form action="/delete-account" method="POST">
+           <input type="hidden" name="username" value="{{user.username}}">
+           <button type="submit">Delete Account</button>
+       </form>
+   </div>
 </body>
 </html>
+
+

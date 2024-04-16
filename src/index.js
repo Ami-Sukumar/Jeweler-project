@@ -1,7 +1,10 @@
 const express = require("express");
 const path = require("path");
 const app = express();
+const port = 3000;
 const hbs = require("hbs");
+const fs = require("fs");
+
 
 // Import mongoose
 const mongoose = require("mongoose");
@@ -9,8 +12,9 @@ const { Collection, UserInfoModel } = require("./mongodb");
 
 // Define the path to your public directory
 const publicDirectoryPath = path.join(__dirname, "../public");
-// path for templating
+// Path for templating
 const templatePath = path.join(__dirname, '../templates')
+
 
 // Serve static files from the public directory
 app.use(express.static(publicDirectoryPath));
@@ -19,6 +23,25 @@ app.use(express.json());
 app.set("view engine", "hbs");
 app.set("views", templatePath);
 app.use(express.urlencoded({ extended: false }));
+
+
+// Route for handling search submission
+app.post('/search', (req, res) => {
+    const userInput = req.body.userInput.toLowerCase();
+    res.redirect(`/product?productName=${userInput}`);
+});
+
+// Route for serving product data
+app.get('/product', (req, res) => {
+    const productName = req.query.productName.toLowerCase();
+    const products = require('./data/product.json');
+    const product = products.find(p => p.name.toLowerCase() === productName);
+    if (product) {
+        res.render("product", { product });
+    } else {
+        res.status(404).render("error", { message: "Product not found" });
+    }
+});
 
 // Define route to render login page
 app.get("/", (req, res) => {
@@ -100,8 +123,6 @@ app.post("/delete-account", async (req, res) => {
     }
 });
 
-
-
 // Handle user info submission
 app.post("/userinfo", async (req, res) => {
     try {
@@ -112,33 +133,48 @@ app.post("/userinfo", async (req, res) => {
             address: req.body.address,
             phone: req.body.phone,
             gender: req.body.gender,
-            username: req.body.username
         };
 
         await UserInfoModel.insertMany([userInfo]);
 
         // Redirect to successful page after saving
-        res.redirect("/successful");
+        res.redirect(`/successful/${userInfo.name}`);
     } catch (error) {
         console.error("Error:", error);
         res.send("An error occurred while saving user information");
     }
 });
 
+// // route to update
+// app.update("/updateuserinfo", async (req, res) => {
+//     try {
+//         const userInfo = {
+//             // name: req.body.name,
+//             age: req.body.age,
+//             email: req.body.email,
+//             address: req.body.address,
+//             phone: req.body.phone,
+//             gender: req.body.gender,
+//         };
+
+//        const res = await UserInfoModel.replaceOne({userInfo},{userInfo});
+
+//     }});
 
 // Define route to render the successful page
-app.get("/successful", (req, res) => {
-    res.render("successful");
+app.get("/successful/:name", (req, res) => {
+    const name = req.params.name;
+    res.render("successful", {name});
 });
 
 // Define route to render user profile page
 app.get("/profile", async (req, res) => {
     try {
         // Assuming there is a username stored in session or passed in query parameter
-        const username = req.query.username;
+        const name = req.query.name;
         
         // Fetch user data from the UserInfoModel based on the username
-        const user = await UserInfoModel.findOne({ username });
+        const user = await UserInfoModel.findOne({ name });
         
         if (user) {
             // Render the profile page and pass user data to it

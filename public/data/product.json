@@ -1,0 +1,26 @@
+[
+ {
+   "name": "Discord",
+   "image": "https://www.svgrepo.com/show/331368/discord-v2.svg",
+   "description": "Voice, video, and text communication platform",
+   "version": "1.0",
+   "website": "https://discord.com",
+   "contact": "contact@discord.com"
+ },
+ {
+   "name": "Slack",
+   "image": "https://static-00.iconduck.com/assets.00/slack-icon-512x511-58qp4fp3.png",
+   "description": "Collaboration hub for work",
+   "version": "2.0",
+   "website": "https://slack.com",
+   "contact": "contact@slack.com"
+ },
+ {
+   "name": "Steam",
+   "image": "https://static-00.iconduck.com/assets.00/steam-icon-2048x2048-rbyixh0f.png",
+   "description": "Digital distribution platform for video games",
+   "version": "3.0",
+   "website": "https://store.steampowered.com",
+   "contact": "contact@steam.com"
+ }
+]
