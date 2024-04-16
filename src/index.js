@@ -34,7 +34,7 @@ app.post('/search', (req, res) => {
 // Route for serving product data
 app.get('/product', (req, res) => {
     const productName = req.query.productName.toLowerCase();
-    const products = require('./data/product.json');
+    const products = require('../public/data/product.json');
     const product = products.find(p => p.name.toLowerCase() === productName);
     if (product) {
         res.render("product", { product });

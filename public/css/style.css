@@ -143,10 +143,10 @@ h3 {
 @media only screen and (max-width: 576px) {
     /* Adjust styles for smartphones */
     body {
-        padding: 2%; /* Adjust padding for smartphones */
+        padding: 10%; /* Adjust padding for smartphones */
     }
     .container {
-        max-width: 90%; /* Adjust container width for smartphones */
+        max-width: 30%; /* Adjust container width for smartphones */
     }
     .logo {
         width: 80%; /* Adjust logo width for smartphones */
@@ -156,10 +156,11 @@ h3 {
     }
 }
 footer{
-    margin-top: 20px; 
+    margin-top: 100px; 
 }
 
 /*the animation to the grid container */
  .grid-container {
+            margin-block-start : 10% ;
             animation: moveContainers 1s ease-in-out infinite alternate;
         }

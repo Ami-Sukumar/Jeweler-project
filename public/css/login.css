@@ -43,15 +43,6 @@ body {
 }
 
 
-h2 {
-    position: absolute;
-    top: 190px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    border-radius: 5%;
-}
-
 .login-container input[type="submit"] {
     padding: 10px;
     width: 150px;
@@ -97,3 +88,23 @@ h2 {
     cursor: pointer; /* Show pointer cursor on hover */
 }
 
+/* Media queries */
+@media only screen and (max-width: 768px) {
+    /* Adjust padding for body and containers */
+    body {
+        padding: 3%; /* Reduce padding for smaller screens */
+    }
+    .container {
+        max-width: 90%; /* Adjust container width */
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    /* Adjust padding for body and containers */
+    body {
+        padding: 2%; /* Further reduce padding for even smaller screens */
+    }
+    .container {
+        max-width: 90%; /* Adjust container width */
+    }
+}

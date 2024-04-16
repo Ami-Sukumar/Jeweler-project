@@ -1,6 +1,5 @@
 // Function to handle form submission
 async function handleSubmit(event) {
-    event.preventDefault();
 
     // Retrieve form data
     const name = document.getElementById('name').value;

@@ -25,7 +25,7 @@
             <p><a href="/login">Login</a></p>
         </div>
         <img src="https://raw.githubusercontent.com/Ami-Sukumar/Jeweler-project/main/public/img/JEweLER.svg" alt="jeweler logo" width="100px" class="logo">
-<form id="searchForm" class="search-form" onsubmit="return searchRedirect()">
+<form id="searchForm" class="search-form" onsubmit="return searchRedirect(event)">
     <input type="text" id="searchInput" placeholder="Search..." class="search-input">
     <button type="submit" class="search-button">Search</button>
 </form>
@@ -47,6 +47,6 @@
             <div class="name-tag">Steam</div>
         </div>
     </div>
-    <script src="/src/search.js"></script>
+    <script src="/search.js"></script>
 </body>
 </html>

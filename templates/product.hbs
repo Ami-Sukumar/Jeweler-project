@@ -13,12 +13,12 @@
    </div>
    <div class="container">
        <div class="app-icon">
-           <img id="productImage" src="" height="100" alt="App Icon">
+           <img id="productImage" src="{{product.image}}" height="100" alt="App Icon">
            <i class="fas fa-bookmark bookmark"></i>
        </div>
-       <h2 class="app-title"></h2>
-       <p class="short-description"></p>
-       <p class="version"></p>
+       <h2 class="app-title">{{product.name}}</h2>
+       <p class="short-description">{{product.description}}</p>
+       <p class="version">{{product.version}}</p>
        <p class="contact-info">Website: <a id="websiteLink" href=""></a><br>
            Contact: <span id="contactEmail"></span></p>
        <form>
