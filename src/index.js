@@ -100,18 +100,11 @@ app.get("/logout", (req, res) => {
 app.post("/delete-account", async (req, res) => {
     try {
         const username = req.body.username;
-        
-        // Find the user account from the second database
-        const user = await UserInfoModel.findOne({ username });
-        console.log("User found:", user); // Log the user details
-        
+         
         // Find and delete the user account from the first database
         const deletedUser = await Collection.findOneAndDelete({ username });
 
-        // Find and delete the user account from the second database
-        const deletedUserInfo = await UserInfoModel.findOneAndDelete({ username });
-
-        if (deletedUser && deletedUserInfo) {
+        if (deletedUser) {
             // Both accounts were successfully deleted
             res.redirect("/");
         } else {
