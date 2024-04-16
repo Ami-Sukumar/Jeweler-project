@@ -56,3 +56,4 @@ const Collection = mongoose.model("collection1", LogInSchema);
 
 // Export the model for the first database
 module.exports.Collection = Collection;
+module.exports.LogInSchema = LogInSchema;

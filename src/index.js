@@ -8,7 +8,7 @@ const fs = require("fs");
 
 // Import mongoose
 const mongoose = require("mongoose");
-const { Collection, UserInfoModel } = require("./mongodb");
+const { Collection } = require("./mongodb");
 
 // Define the path to your public directory
 const publicDirectoryPath = path.join(__dirname, "../public");
@@ -54,7 +54,8 @@ app.get("/login", (req, res) => {
 
 // Define route to render user info page
 app.get("/info", (req, res) => {
-    res.render("info");
+    const id = req.query.id
+    res.render("info", { id });
 });
 
 // Define route to render Signup page
@@ -124,9 +125,9 @@ app.post("/delete-account", async (req, res) => {
 });
 
 // Handle user info submission
-app.post("/userinfo", async (req, res) => {
+app.post("/user/:id/edit", async (req, res) => {
     try {
-        const userInfo = {
+        const newData = {
             name: req.body.name,
             age: req.body.age,
             email: req.body.email,
@@ -134,11 +135,14 @@ app.post("/userinfo", async (req, res) => {
             phone: req.body.phone,
             gender: req.body.gender,
         };
-
-        await UserInfoModel.insertMany([userInfo]);
+        console.log(req.params.id)
+        const oldData = await Collection.findById(req.params.id)
+        console.log(oldData)
+        oldData.overwrite({username: oldData.username, password: oldData.password, ...newData})
+        await oldData.save()
 
         // Redirect to successful page after saving
-        res.redirect(`/successful/${userInfo.name}`);
+        res.redirect(`/successful/${newData.name}`);
     } catch (error) {
         console.error("Error:", error);
         res.send("An error occurred while saving user information");
@@ -174,7 +178,7 @@ app.get("/profile", async (req, res) => {
         const name = req.query.name;
         
         // Fetch user data from the UserInfoModel based on the username
-        const user = await UserInfoModel.findOne({ name });
+        const user = await Collection.findOne({ name });
         
         if (user) {
             // Render the profile page and pass user data to it

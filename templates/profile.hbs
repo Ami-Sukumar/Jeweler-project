@@ -35,7 +35,8 @@
        </form>
        <!-- Add your details -->
        <form action="/info" method="GET">
-           <button type="submit">Add your details</button>
+           <input type="hidden" name="id" value="{{user._id}}">
+           <button type="submit">Edit your details</button>
        </form>
        <!-- Delete account button -->
        <form action="/delete-account" method="POST">
