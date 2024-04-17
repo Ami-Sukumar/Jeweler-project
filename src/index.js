@@ -24,6 +24,11 @@ app.set("view engine", "hbs");
 app.set("views", templatePath);
 app.use(express.urlencoded({ extended: false }));
 
+// Route for rendering contact page
+app.get("/contact", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/contact.html"));
+});
+
 
 // Route for handling search submission
 app.post('/search', (req, res) => {
