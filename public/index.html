@@ -25,11 +25,10 @@
             <p><a href="/login">Login</a></p>
         </div>
         <img src="https://raw.githubusercontent.com/Ami-Sukumar/Jeweler-project/main/public/img/JEweLER.svg" alt="jeweler logo" width="100px" class="logo">
-<form id="searchForm" class="search-form" onsubmit="return searchRedirect(event)">
-    <input type="text" id="searchInput" placeholder="Search..." class="search-input">
-    <button type="submit" class="search-button">Search</button>
-</form>
-
+        <form id="searchForm" class="search-form" onsubmit="return searchRedirect(event)">
+            <input type="text" id="searchInput" placeholder="Search..." class="search-input">
+            <button type="submit" class="search-button">Search</button>
+        </form>
     </header>
     <h3>Currently available on our platforms</h3>
     
@@ -47,6 +46,17 @@
             <div class="name-tag">Steam</div>
         </div>
     </div>
+
+<!-- Image Carousel -->
+<div class="carousel-container">
+    <div class="carousel-slide"></div>
+    <button id="prevBtn">Prev</button>
+    <button id="nextBtn">Next</button>
+    <p> Coming Soon..</p>
+</div>
+
+
     <script src="/js/search.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 </html>

@@ -24,6 +24,35 @@ app.set("view engine", "hbs");
 app.set("views", templatePath);
 app.use(express.urlencoded({ extended: false }));
 
+
+// Define the path to your images directory
+const imagesDirectory = path.join(__dirname, "../public/images");
+
+// Route for serving image URLs
+app.get("/images", (req, res) => {
+    // Read the list of files in the images directory
+    fs.readdir(imagesDirectory, (err, files) => {
+        if (err) {
+            console.error("Error reading images directory:", err);
+            return res.status(500).json({ error: "Internal server error" });
+        }
+
+        // Filter out non-image files (if any)
+        const imageFiles = files.filter(file => {
+            const fileExtension = path.extname(file).toLowerCase();
+            return fileExtension === ".png" || fileExtension === ".jpg" || fileExtension === ".jpeg" || fileExtension === ".gif";
+        });
+
+        // Construct image URLs
+        const imageUrls = imageFiles.map(file => `/images/${file}`);
+
+        // Send the list of image URLs as a JSON response
+        res.json({ images: imageUrls });
+    });
+});
+
+
+
 // Route for rendering contact page
 app.get("/contact", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/contact.html"));
