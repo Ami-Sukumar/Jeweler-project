@@ -19,5 +19,7 @@ Copy code:
 
 git clone : https://github.com/Ami-Sukumar/Jeweler-project.git
 
+https://jeweler-project.onrender.com
+
 
 create, update, and delete database : login page where you can create a profile, delete the profile, update the password.
